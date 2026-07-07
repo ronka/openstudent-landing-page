@@ -3,6 +3,7 @@ import { Rubik, Assistant } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
+import Providers from "./providers";
 
 const rubik = Rubik({
   variable: "--font-rubik",
@@ -50,9 +51,11 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl" className={`${rubik.variable} ${assistant.variable}`}>
       <body className="min-h-screen bg-paper text-ink">
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
+        <Providers>
+          <SiteHeader />
+          <main>{children}</main>
+          <SiteFooter />
+        </Providers>
       </body>
     </html>
   );
