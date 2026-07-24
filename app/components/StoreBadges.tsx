@@ -2,13 +2,11 @@
 
 import posthog from "posthog-js";
 
-/**
- * Download badges. The app isn't published yet, so both are "coming soon" placeholders.
- * When live, set the URLs here (single source of truth) and drop `comingSoon`.
- */
+/** Download badges. Store URLs live here — single source of truth. */
 const APP_STORE_URL =
   "https://apps.apple.com/us/app/open-student-%D7%A0%D7%99%D7%94%D7%95%D7%9C-%D7%AA%D7%95%D7%90%D7%A8-%D7%91%D7%A4%D7%AA%D7%95%D7%97%D7%94/id6787389579";
-const GOOGLE_PLAY_URL = ""; // TODO: paste Google Play URL when published
+const GOOGLE_PLAY_URL =
+  "https://play.google.com/store/apps/details?id=com.ronkaa.openstudent";
 
 function Badge({
   href,
@@ -23,39 +21,17 @@ function Badge({
   icon: React.ReactNode;
   store: "app_store" | "google_play";
 }) {
-  const comingSoon = href === "";
-  const className =
-    "group inline-flex items-center gap-3 rounded-2xl border border-black/10 bg-ink px-5 py-3 text-white transition-transform";
-
-  const content = (
-    <>
+  return (
+    <a
+      href={href}
+      className="group inline-flex items-center gap-3 rounded-2xl border border-black/10 bg-ink px-5 py-3 text-white transition-transform hover:-translate-y-0.5"
+      onClick={() => posthog.capture("store_badge_clicked", { store })}
+    >
       <span className="text-white">{icon}</span>
       <span className="flex flex-col text-right leading-tight">
         <span className="text-[0.7rem] text-white/70">{eyebrow}</span>
         <span className="font-display text-base font-semibold">{label}</span>
       </span>
-    </>
-  );
-
-  if (comingSoon) {
-    return (
-      <span
-        className={`${className} cursor-default opacity-90`}
-        aria-disabled="true"
-        title="בקרוב"
-      >
-        {content}
-      </span>
-    );
-  }
-
-  return (
-    <a
-      href={href}
-      className={`${className} hover:-translate-y-0.5`}
-      onClick={() => posthog.capture("store_badge_clicked", { store })}
-    >
-      {content}
     </a>
   );
 }
@@ -90,7 +66,7 @@ export default function StoreBadges() {
           }
         />
       </div>
-      <p className="text-sm text-muted">בקרוב ל־iOS ול־Android · צפויה לצאת בקרוב</p>
+      <p className="text-sm text-muted">זמין עכשיו ל־iOS ול־Android</p>
     </div>
   );
 }
