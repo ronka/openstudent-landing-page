@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import LegalShell from "../components/LegalShell";
 
 const CONTACT_EMAIL = "support@openstudent.app"; // TODO: replace with real contact email
-const GOOGLE_FORM_URL = "REPLACE_ME_GOOGLE_FORM_URL"; // TODO: paste the Google Form link
+const GOOGLE_FORM_URL = "https://forms.gle/CvKd8cvFkAz7Fgz89";
+
+export const metadata: Metadata = {
+  title: "תמיכה — אופן סטודנט",
+  description: "שאלות, דיווח על באגים ובקשות לתכונות חדשות באפליקציית אופן סטודנט.",
+};
 
 const faq = [
   {
@@ -20,8 +25,6 @@ const faq = [
 ];
 
 export default function SupportPage() {
-  const formReady = GOOGLE_FORM_URL.startsWith("http");
-
   return (
     <LegalShell
       title="תמיכה"
@@ -34,22 +37,14 @@ export default function SupportPage() {
         </p>
         <div className="mt-4">
           <a
-            href={formReady ? GOOGLE_FORM_URL : undefined}
-            target={formReady ? "_blank" : undefined}
-            rel={formReady ? "noopener noreferrer" : undefined}
-            aria-disabled={!formReady}
-            className={`inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 font-display font-semibold text-white no-underline transition-transform hover:-translate-y-0.5 ${
-              formReady ? "" : "pointer-events-none opacity-60"
-            }`}
+            href={GOOGLE_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 font-display font-semibold text-white no-underline transition-transform hover:-translate-y-0.5"
           >
             פתיחת טופס הפנייה
             <span aria-hidden="true">←</span>
           </a>
-          {!formReady && (
-            <p className="mt-2 text-sm text-accent">
-              (קישור הטופס עדיין לא הוגדר — יש להחליף את GOOGLE_FORM_URL בקובץ support/page.tsx)
-            </p>
-          )}
         </div>
       </section>
 
