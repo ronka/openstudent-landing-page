@@ -1,7 +1,7 @@
-import Link from "next/link";
+import TrackedLink from "./TrackedLink";
 import Wordmark from "./Wordmark";
 
-const CONTACT_EMAIL = "support@openstudent.app"; // TODO: replace with real contact email
+const CONTACT_EMAIL = "contactdadyapp@gmail.com";
 
 export default function SiteFooter() {
   const year = new Date().getFullYear();
@@ -20,25 +20,42 @@ export default function SiteFooter() {
 
           <nav className="flex flex-col gap-2.5 text-sm">
             <span className="font-display font-semibold text-ink">קישורים</span>
-            <Link href="/support" className="text-muted transition-colors hover:text-ink">
+            <TrackedLink
+              href="/support"
+              event="footer_link_clicked"
+              eventProps={{ link: "support" }}
+              className="text-muted transition-colors hover:text-ink"
+            >
               תמיכה
-            </Link>
-            <Link href="/privacy" className="text-muted transition-colors hover:text-ink">
+            </TrackedLink>
+            <TrackedLink
+              href="/privacy"
+              event="footer_link_clicked"
+              eventProps={{ link: "privacy" }}
+              className="text-muted transition-colors hover:text-ink"
+            >
               מדיניות פרטיות
-            </Link>
-            <Link href="/terms" className="text-muted transition-colors hover:text-ink">
+            </TrackedLink>
+            <TrackedLink
+              href="/terms"
+              event="footer_link_clicked"
+              eventProps={{ link: "terms" }}
+              className="text-muted transition-colors hover:text-ink"
+            >
               תנאי שימוש
-            </Link>
+            </TrackedLink>
           </nav>
 
           <div className="flex flex-col gap-2.5 text-sm">
             <span className="font-display font-semibold text-ink">יצירת קשר</span>
-            <a
+            <TrackedLink
               href={`mailto:${CONTACT_EMAIL}`}
+              event="footer_link_clicked"
+              eventProps={{ link: "email" }}
               className="text-muted transition-colors hover:text-ink"
             >
               {CONTACT_EMAIL}
-            </a>
+            </TrackedLink>
           </div>
         </div>
 

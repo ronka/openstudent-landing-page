@@ -4,6 +4,7 @@ import posthog from "posthog-js";
 import { PostHogProvider as PHProvider, usePostHog } from "posthog-js/react";
 import { Suspense, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { firstTouchProps } from "./lib/analytics";
 
 const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
 const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST;
@@ -19,6 +20,8 @@ if (typeof window !== "undefined" && POSTHOG_KEY) {
       // Distinguishes this site from the openstudent mobile app, which
       // shares this PostHog project.
       client.register({ app: "landing-page" });
+      // First campaign seen wins, so conversions stay attributable.
+      client.register_once(firstTouchProps());
     },
   });
 }

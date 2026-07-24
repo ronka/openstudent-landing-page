@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import LegalShell from "../components/LegalShell";
 
-const CONTACT_EMAIL = "support@openstudent.app"; // TODO: replace with real contact email
+const CONTACT_EMAIL = "contactdadyapp@gmail.com";
 
 export const metadata: Metadata = {
   title: "מדיניות פרטיות — אופן סטודנט",

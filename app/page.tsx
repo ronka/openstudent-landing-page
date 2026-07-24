@@ -1,4 +1,5 @@
 import PhoneFrame from "./components/PhoneFrame";
+import SectionTracker from "./components/SectionTracker";
 import StoreBadges from "./components/StoreBadges";
 
 const features = [
@@ -83,7 +84,7 @@ export default function Home() {
             </p>
 
             <div className="mt-8" id="download">
-              <StoreBadges />
+              <StoreBadges placement="hero" />
             </div>
           </div>
 
@@ -102,7 +103,11 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section id="features" className="mx-auto max-w-6xl px-5 py-16 md:py-24">
+      <SectionTracker
+        section="features"
+        id="features"
+        className="mx-auto max-w-6xl px-5 py-16 md:py-24"
+      >
         <div className="max-w-2xl">
           <p className="font-display text-sm font-semibold uppercase tracking-wider text-brand">
             מה יש בפנים
@@ -128,10 +133,14 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </SectionTracker>
 
       {/* Screens showcase */}
-      <section id="screens" className="border-y border-black/[0.06] bg-mist">
+      <SectionTracker
+        section="screens"
+        id="screens"
+        className="border-y border-black/[0.06] bg-mist"
+      >
         <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
           <div className="max-w-2xl">
             <p className="font-display text-sm font-semibold uppercase tracking-wider text-accent">
@@ -158,10 +167,10 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </SectionTracker>
 
       {/* CTA */}
-      <section className="mx-auto max-w-6xl px-5 py-20">
+      <SectionTracker section="cta" className="mx-auto max-w-6xl px-5 py-20">
         <div className="relative overflow-hidden rounded-3xl bg-ink px-8 py-14 text-center text-white sm:px-16">
           <div
             className="pointer-events-none absolute inset-0 -z-0 opacity-20"
@@ -179,11 +188,11 @@ export default function Home() {
               הצטרפו לסטודנטים שמארגנים כל סמסטר במקום אחד. חינם להורדה.
             </p>
             <div className="mt-8 flex justify-center [&_p]:text-white/60">
-              <StoreBadges />
+              <StoreBadges placement="footer_cta" />
             </div>
           </div>
         </div>
-      </section>
+      </SectionTracker>
     </>
   );
 }

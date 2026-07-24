@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import LegalShell from "../components/LegalShell";
+import TrackedLink from "../components/TrackedLink";
 
-const CONTACT_EMAIL = "support@openstudent.app"; // TODO: replace with real contact email
+const CONTACT_EMAIL = "contactdadyapp@gmail.com";
 const GOOGLE_FORM_URL = "https://forms.gle/CvKd8cvFkAz7Fgz89";
 
 export const metadata: Metadata = {
@@ -36,15 +37,15 @@ export default function SupportPage() {
           מלאו את הטופס ונחזור אליכם בהקדם. אפשר לדווח על באג, לבקש תכונה או לשאול כל דבר.
         </p>
         <div className="mt-4">
-          <a
+          <TrackedLink
             href={GOOGLE_FORM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            event="support_form_opened"
+            eventProps={{}}
             className="inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 font-display font-semibold text-white no-underline transition-transform hover:-translate-y-0.5"
           >
             פתיחת טופס הפנייה
             <span aria-hidden="true">←</span>
-          </a>
+          </TrackedLink>
         </div>
       </section>
 
@@ -52,7 +53,14 @@ export default function SupportPage() {
         <h2>דוא״ל</h2>
         <p>
           מעדיפים דוא״ל? כתבו לנו ל־{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> ונשתדל לחזור אליכם תוך
+          <TrackedLink
+            href={`mailto:${CONTACT_EMAIL}`}
+            event="support_email_clicked"
+            eventProps={{}}
+          >
+            {CONTACT_EMAIL}
+          </TrackedLink>{" "}
+          ונשתדל לחזור אליכם תוך
           כמה ימי עבודה.
         </p>
       </section>
