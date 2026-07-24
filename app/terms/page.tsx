@@ -1,11 +1,26 @@
 import type { Metadata } from "next";
+import JsonLd from "../components/JsonLd";
 import LegalShell from "../components/LegalShell";
+import { LAST_MODIFIED } from "../lib/site";
+import { webPageSchema } from "../lib/structured-data";
 
 const CONTACT_EMAIL = "contactdadyapp@gmail.com";
+const DESCRIPTION = "התנאים לשימוש באפליקציית אופן סטודנט.";
 
 export const metadata: Metadata = {
   title: "תנאי שימוש — אופן סטודנט",
-  description: "התנאים לשימוש באפליקציית אופן סטודנט.",
+  description: DESCRIPTION,
+  alternates: { canonical: "/terms" },
+  // Next replaces the layout's openGraph wholesale rather than merging it, so
+  // siteName and locale have to be repeated here or they're simply lost.
+  openGraph: {
+    title: "תנאי שימוש — אופן סטודנט",
+    description: DESCRIPTION,
+    url: "/terms",
+    siteName: "אופן סטודנט",
+    locale: "he_IL",
+    type: "article",
+  },
 };
 
 export default function TermsPage() {
@@ -15,6 +30,14 @@ export default function TermsPage() {
       updated="7 ביולי 2026"
       intro="השימוש באפליקציית אופן סטודנט כפוף לתנאים שלהלן. השימוש באפליקציה מהווה הסכמה לתנאים אלה."
     >
+      <JsonLd
+        data={webPageSchema({
+          path: "/terms",
+          name: "תנאי שימוש — אופן סטודנט",
+          description: DESCRIPTION,
+          dateModified: LAST_MODIFIED.terms,
+        })}
+      />
       <section>
         <h2>1. קבלת התנאים</h2>
         <p>

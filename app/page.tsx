@@ -1,6 +1,9 @@
+import Link from "next/link";
+import JsonLd from "./components/JsonLd";
 import PhoneFrame from "./components/PhoneFrame";
 import SectionTracker from "./components/SectionTracker";
 import StoreBadges from "./components/StoreBadges";
+import { faqPageSchema, mobileApplicationSchema } from "./lib/structured-data";
 
 const features = [
   {
@@ -56,9 +59,54 @@ const screens = [
   },
 ];
 
+/**
+ * Product questions, answered so each one stands on its own — an answer lifted
+ * out of the page with no surrounding context should still be correct and
+ * attributable, which is how both AI assistants and search snippets quote it.
+ *
+ * Deliberately disjoint from the support page's FAQ: duplicate Q&A across two
+ * FAQPage blocks gets deduplicated or ignored.
+ */
+const faq = [
+  {
+    q: "מה זה אופן סטודנט?",
+    a: "אופן סטודנט היא אפליקציה חינמית בעברית לניהול התואר באוניברסיטה הפתוחה. היא מרכזת במקום אחד את הקורסים, המטלות, הממ״נים, המבחנים, ההתקדמות בתואר וקבוצות הלימוד, כדי שכל מה שקשור לסמסטר יהיה במסך אחד.",
+  },
+  {
+    q: "האם אופן סטודנט בחינם?",
+    a: "כן. אופן סטודנט חינמית להורדה ולשימוש, ללא תשלום וללא מנוי.",
+  },
+  {
+    q: "על אילו מכשירים אפשר להשתמש באפליקציה?",
+    a: "אופן סטודנט זמינה ל־iOS ב־App Store ול־Android ב־Google Play. הממשק בעברית ומותאם לכיוון קריאה מימין לשמאל.",
+  },
+  {
+    q: "איך האפליקציה עוזרת לעקוב אחרי ממ״נים וממ״חים?",
+    a: "כל מטלה — ממ״ן (מטלת מנחה) או ממ״ח (מטלת מחשב) — נשמרת תחת הקורס שלה עם תאריך ההגשה שלה. האפליקציה מציגה תמיד מהי המטלה הדחופה הבאה, וספירה לאחור למבחן הקרוב.",
+  },
+  {
+    q: "האם הנתונים מסונכרנים בין מכשירים?",
+    a: "אם התחברתם לחשבון, הקורסים והמטלות שלכם נשמרים ומסונכרנים בין המכשירים שלכם.",
+  },
+  {
+    q: "מה כולל טיימר הפומודורו?",
+    a: "טיימר פומודורו מובנה עם מחזורי למידה של 25 דקות והפסקות ביניהם, כולל הסבר קצר על השיטה. אין צורך באפליקציית טיימר נפרדת.",
+  },
+  {
+    q: "אפשר לשמור את קבוצות הלימוד של הקורסים?",
+    a: "כן. אפשר לשמור קישור לקבוצת וואטסאפ לכל קורס, ולפתוח את הקבוצה הנכונה בלחיצה. הרשימה מסוננת לפי סמסטר ושנה.",
+  },
+  {
+    q: "האם אופן סטודנט מזוהה עם האוניברסיטה הפתוחה?",
+    a: "לא. אופן סטודנט היא אפליקציה עצמאית שאינה מזוהה עם, מסונפת ל־ או מאושרת על ידי האוניברסיטה הפתוחה. המידע הרשמי המחייב — תאריכי הגשה, מועדי מבחנים ודרישות קורס — הוא זה שמופיע במערכות האוניברסיטה.",
+  },
+];
+
 export default function Home() {
   return (
     <>
+      <JsonLd data={mobileApplicationSchema(features.map((f) => f.title))} />
+      <JsonLd data={faqPageSchema(faq, "/")} />
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div
@@ -119,7 +167,7 @@ export default function Home() {
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
-            <div
+            <article
               key={f.title}
               className="rounded-2xl border border-black/[0.07] bg-paper p-6 transition-shadow hover:shadow-[0_16px_40px_-24px_rgba(11,13,18,0.4)]"
             >
@@ -130,7 +178,7 @@ export default function Home() {
                 {f.title}
               </h3>
               <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{f.body}</p>
-            </div>
+            </article>
           ))}
         </div>
       </SectionTracker>
@@ -167,6 +215,43 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </SectionTracker>
+
+      {/* FAQ */}
+      <SectionTracker
+        section="faq"
+        id="faq"
+        className="mx-auto max-w-3xl px-5 py-16 md:py-24"
+      >
+        <p className="font-display text-sm font-semibold uppercase tracking-wider text-brand">
+          שאלות ותשובות
+        </p>
+        <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+          מה כדאי לדעת לפני שמתחילים
+        </h2>
+
+        {/* Heading + paragraph rather than a <dl>: the H1→H2→H3 hierarchy is
+            what gives each answer an addressable label when a model chunks the
+            page, and <dt> may not contain heading content. */}
+        <div className="mt-10 divide-y divide-black/[0.07] border-y border-black/[0.07]">
+          {faq.map((item) => (
+            <article key={item.q} className="py-6">
+              <h3 className="font-display text-lg font-semibold text-ink">{item.q}</h3>
+              <p className="mt-2 leading-relaxed text-muted">{item.a}</p>
+            </article>
+          ))}
+        </div>
+
+        <p className="mt-8 text-[0.95rem] text-muted">
+          לא מצאתם תשובה?{" "}
+          <Link
+            href="/support"
+            className="font-medium text-brand-dark underline underline-offset-2"
+          >
+            עברו לעמוד התמיכה
+          </Link>{" "}
+          — שם יש שאלות על חשבון, נתונים ותקלות, וטופס פנייה ישיר.
+        </p>
       </SectionTracker>
 
       {/* CTA */}

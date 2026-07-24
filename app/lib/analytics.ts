@@ -6,7 +6,7 @@ export type Store = "app_store" | "google_play";
 export type BadgePlacement = "hero" | "footer_cta";
 export type NavLink = "logo" | "features" | "screens" | "support" | "download";
 export type FooterLink = "support" | "privacy" | "terms" | "email";
-export type Section = "features" | "screens" | "cta";
+export type Section = "features" | "screens" | "faq" | "cta";
 
 /**
  * Every event the landing page sends, with its payload. Keeping them in one

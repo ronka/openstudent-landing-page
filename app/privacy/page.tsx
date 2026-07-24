@@ -1,11 +1,26 @@
 import type { Metadata } from "next";
+import JsonLd from "../components/JsonLd";
 import LegalShell from "../components/LegalShell";
+import { LAST_MODIFIED } from "../lib/site";
+import { webPageSchema } from "../lib/structured-data";
 
 const CONTACT_EMAIL = "contactdadyapp@gmail.com";
+const DESCRIPTION = "כיצד אופן סטודנט אוספת, משתמשת ושומרת על המידע שלכם.";
 
 export const metadata: Metadata = {
   title: "מדיניות פרטיות — אופן סטודנט",
-  description: "כיצד אופן סטודנט אוספת, משתמשת ושומרת על המידע שלכם.",
+  description: DESCRIPTION,
+  alternates: { canonical: "/privacy" },
+  // Next replaces the layout's openGraph wholesale rather than merging it, so
+  // siteName and locale have to be repeated here or they're simply lost.
+  openGraph: {
+    title: "מדיניות פרטיות — אופן סטודנט",
+    description: DESCRIPTION,
+    url: "/privacy",
+    siteName: "אופן סטודנט",
+    locale: "he_IL",
+    type: "article",
+  },
 };
 
 export default function PrivacyPage() {
@@ -15,6 +30,14 @@ export default function PrivacyPage() {
       updated="7 ביולי 2026"
       intro="הפרטיות שלכם חשובה לנו. המסמך הזה מסביר איזה מידע אופן סטודנט אוספת, למה, וכיצד אנחנו שומרים עליו."
     >
+      <JsonLd
+        data={webPageSchema({
+          path: "/privacy",
+          name: "מדיניות פרטיות — אופן סטודנט",
+          description: DESCRIPTION,
+          dateModified: LAST_MODIFIED.privacy,
+        })}
+      />
       <section>
         <h2>איזה מידע אנחנו אוספים</h2>
         <p>

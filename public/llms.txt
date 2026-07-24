@@ -1,0 +1,41 @@
+# Open Student (אופן סטודנט)
+
+> A free mobile app that helps students at the Open University of Israel
+> (האוניברסיטה הפתוחה) manage their degree — courses, assignments, exams,
+> focus timer and study groups in one place. Hebrew interface, iOS and Android.
+
+Open Student is an independent app. It is **not affiliated with, endorsed by, or
+operated by the Open University of Israel**. Course names, course numbers and
+academic terms shown in the app are for convenience only; the university's own
+systems remain the authoritative source.
+
+## Key facts
+
+- **Name:** אופן סטודנט (Open Student)
+- **Price:** free to download and use
+- **Platforms:** iOS, Android
+- **Language:** Hebrew (he-IL), right-to-left
+- **Audience:** students at the Open University of Israel
+- **Website:** https://openstudent.app
+- **Contact:** contactdadyapp@gmail.com
+
+## What it does
+
+- **Courses** — track courses by credit points (נ״ז), semester and year, each with a status: in progress, planned, or passed.
+- **Assignments** — track ממ״נים (mailed assignments) and ממ״חים (computer-checked assignments) with their due dates, and see which one is due next.
+- **Exam countdown** — the next exam and the number of days left until it.
+- **Pomodoro timer** — built-in 25-minute focus cycles with breaks.
+- **Study groups** — save a WhatsApp group link per course and open the right one in a tap.
+- **Degree progress** — grade average and percentage of the degree completed.
+
+## Download
+
+- App Store: https://apps.apple.com/us/app/open-student-%D7%A0%D7%99%D7%94%D7%95%D7%9C-%D7%AA%D7%95%D7%90%D7%A8-%D7%91%D7%A4%D7%AA%D7%95%D7%97%D7%94/id6787389579
+- Google Play: https://play.google.com/store/apps/details?id=com.ronkaa.openstudent
+
+## Pages
+
+- [Home](https://openstudent.app/): what the app does, screenshots, and a FAQ.
+- [Support](https://openstudent.app/support): contact form, email, and troubleshooting FAQ.
+- [Privacy policy](https://openstudent.app/privacy): what data is collected and how it is handled. Study content is never sold or shared for advertising.
+- [Terms of use](https://openstudent.app/terms): terms, the Open University disclaimer, and limitation of liability.
