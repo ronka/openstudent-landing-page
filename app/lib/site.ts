@@ -1,4 +1,4 @@
-export const SITE_URL = "https://openstudent.app";
+export const SITE_URL = "https://www.openstudent.co.il";
 
 /**
  * Real content-change dates, kept by hand. The sitemap's lastmod and the

@@ -16,7 +16,7 @@ systems remain the authoritative source.
 - **Platforms:** iOS, Android
 - **Language:** Hebrew (he-IL), right-to-left
 - **Audience:** students at the Open University of Israel
-- **Website:** https://openstudent.app
+- **Website:** https://www.openstudent.co.il
 - **Contact:** contactdadyapp@gmail.com
 
 ## What it does
@@ -35,7 +35,7 @@ systems remain the authoritative source.
 
 ## Pages
 
-- [Home](https://openstudent.app/): what the app does, screenshots, and a FAQ.
-- [Support](https://openstudent.app/support): contact form, email, and troubleshooting FAQ.
-- [Privacy policy](https://openstudent.app/privacy): what data is collected and how it is handled. Study content is never sold or shared for advertising.
-- [Terms of use](https://openstudent.app/terms): terms, the Open University disclaimer, and limitation of liability.
+- [Home](https://www.openstudent.co.il/): what the app does, screenshots, and a FAQ.
+- [Support](https://www.openstudent.co.il/support): contact form, email, and troubleshooting FAQ.
+- [Privacy policy](https://www.openstudent.co.il/privacy): what data is collected and how it is handled. Study content is never sold or shared for advertising.
+- [Terms of use](https://www.openstudent.co.il/terms): terms, the Open University disclaimer, and limitation of liability.
