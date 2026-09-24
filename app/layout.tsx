@@ -63,12 +63,21 @@ export const metadata: Metadata = {
     siteName: "אופן סטודנט",
     locale: "he_IL",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "אופן סטודנט — כל התואר במקום אחד",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "אופן סטודנט — מעקב לימודים לאוניברסיטה הפתוחה",
     description:
       "נהלו את התואר באוניברסיטה הפתוחה: קורסים, מטלות, מבחנים, פומודורו וקבוצות לימוד.",
+    images: ["/og-image.png"],
   },
 };
 

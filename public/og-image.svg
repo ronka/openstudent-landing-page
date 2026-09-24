@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#edf3ff"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#316dff"/>
+      <stop offset="1" stop-color="#1746cc"/>
+    </linearGradient>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#123f9b" flood-opacity=".15"/>
+    </filter>
+    <style>
+      text { font-family: 'Arial Hebrew', Arial, sans-serif; }
+      .ink { fill: #0b1630; }
+      .muted { fill: #53617a; }
+      .right { text-anchor: end; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="188" cy="470" r="335" fill="#e6eeff"/>
+  <circle cx="206" cy="455" r="248" fill="#d7e4ff" opacity=".65"/>
+  <path d="M0 578C178 515 360 555 533 630H0Z" fill="#dce8ff" opacity=".65"/>
+
+  <!-- Brand -->
+  <rect x="1034" y="65" width="68" height="68" rx="19" fill="url(#blue)"/>
+  <path d="m1050 101 12 13 24-29" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1016" y="110" class="right ink" font-size="31" font-weight="700">אופן סטודנט</text>
+
+  <rect x="720" y="164" width="382" height="43" rx="21.5" fill="#e8efff"/>
+  <circle cx="1076" cy="185.5" r="5" fill="#1f5bff"/>
+  <text x="1058" y="193" class="right" fill="#1746cc" font-size="20" font-weight="700">לסטודנטים של האוניברסיטה הפתוחה</text>
+
+  <text x="1102" y="294" class="right ink" font-size="72" font-weight="700">כל התואר.</text>
+  <text x="1102" y="378" class="right" fill="#1f5bff" font-size="72" font-weight="700">במקום אחד.</text>
+  <text x="1102" y="438" class="right muted" font-size="27">קורסים, מטלות, מבחנים והתקדמות</text>
+
+  <rect x="865" y="526" width="237" height="49" rx="24.5" fill="#1f5bff"/>
+  <text x="984" y="558" fill="#fff" font-size="22" font-weight="700" text-anchor="middle">הסמסטר בידיים שלכם</text>
+
+  <!-- A concise Hebrew preview of the app, large enough to read in a share card. -->
+  <g filter="url(#shadow)">
+    <rect x="76" y="139" width="475" height="375" rx="32" fill="#fff"/>
+  </g>
+  <rect x="77" y="139" width="473" height="375" rx="32" fill="none" stroke="#d8e3f6" stroke-width="2"/>
+  <text x="509" y="191" class="right ink" font-size="25" font-weight="700">הסמסטר שלי</text>
+  <circle cx="112" cy="181" r="18" fill="#e8efff"/>
+  <path d="m104 181 6 6 11-13" fill="none" stroke="#1f5bff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="104" y="219" width="418" height="107" rx="22" fill="#1f5bff"/>
+  <text x="487" y="258" class="right" fill="#cddaff" font-size="19" font-weight="700">המשימה הקרובה</text>
+  <text x="487" y="293" class="right" fill="#fff" font-size="30" font-weight="700">ממ״ן 11</text>
+  <rect x="104" y="342" width="202" height="141" rx="21" fill="#f5f7fc"/>
+  <text x="279" y="378" class="right muted" font-size="18" font-weight="700">התקדמות בתואר</text>
+  <text x="279" y="432" class="right ink" font-size="41" font-weight="700">68%</text>
+  <rect x="128" y="455" width="151" height="8" rx="4" fill="#dbe5fb"/>
+  <rect x="128" y="455" width="103" height="8" rx="4" fill="#1f5bff"/>
+
+  <rect x="321" y="342" width="201" height="141" rx="21" fill="#fff4e9"/>
+  <text x="496" y="378" class="right" fill="#9b4b13" font-size="18" font-weight="700">המבחן הקרוב</text>
+  <text x="496" y="432" class="right ink" font-size="37" font-weight="700">עוד 15 ימים</text>
+  <circle cx="348" cy="446" r="10" fill="#f3c99e"/>
+
+  <text x="76" y="579" fill="#62738e" font-size="20" font-weight="700">אפליקציה חינמית בעברית</text>
+</svg>
