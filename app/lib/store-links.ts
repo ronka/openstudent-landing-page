@@ -7,3 +7,19 @@ export const APP_STORE_URL =
 
 export const GOOGLE_PLAY_URL =
   "https://play.google.com/store/apps/details?id=com.ronkaa.openstudent";
+
+/**
+ * Store links for the course landing pages. Shorter App Store form, tagged so
+ * store-side analytics can attribute installs to the course page.
+ */
+export function courseStoreLinks(courseNumber: string) {
+  const utm = new URLSearchParams({
+    utm_source: "site",
+    utm_medium: "course_page",
+    utm_campaign: courseNumber,
+  }).toString();
+  return {
+    appStore: `https://apps.apple.com/il/app/id6787389579?${utm}`,
+    googlePlay: `${GOOGLE_PLAY_URL}&${utm}`,
+  };
+}

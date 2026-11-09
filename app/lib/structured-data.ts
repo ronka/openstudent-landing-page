@@ -125,3 +125,58 @@ export function webPageSchema({
     publisher: { "@id": ORGANIZATION_ID },
   };
 }
+
+export function breadcrumbSchema(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: `${SITE_URL}${item.path}`,
+    })),
+  };
+}
+
+/**
+ * A course page's subject. The course itself is taught by the Open University,
+ * so it is named as `provider` (that's what the field means); the page around
+ * it is published by OpenStudent, which is independent of the university.
+ */
+export function courseSchema({
+  courseNumber,
+  name,
+  description,
+  credits,
+  path,
+}: {
+  courseNumber: string;
+  name: string;
+  description: string;
+  credits: number | null;
+  path: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "@id": `${SITE_URL}${path}#course`,
+    url: `${SITE_URL}${path}`,
+    name,
+    courseCode: courseNumber,
+    description,
+    inLanguage: "he-IL",
+    ...(credits ? { numberOfCredits: credits } : {}),
+    provider: {
+      "@type": "CollegeOrUniversity",
+      name: "האוניברסיטה הפתוחה",
+      sameAs: "https://www.openu.ac.il",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}${path}#webpage`,
+      isPartOf: { "@id": WEBSITE_ID },
+      publisher: { "@id": ORGANIZATION_ID },
+    },
+  };
+}
