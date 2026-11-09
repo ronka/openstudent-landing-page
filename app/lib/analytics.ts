@@ -5,7 +5,7 @@ import posthog from "posthog-js";
 export type Store = "app_store" | "google_play";
 export type BadgePlacement = "hero" | "footer_cta";
 export type NavLink = "logo" | "features" | "screens" | "support" | "download";
-export type FooterLink = "support" | "privacy" | "terms" | "email";
+export type FooterLink = "support" | "privacy" | "terms" | "email" | "courses";
 export type Section = "features" | "screens" | "faq" | "cta";
 
 /**
@@ -20,6 +20,7 @@ export type EventMap = {
   support_form_opened: Record<string, never>;
   support_email_clicked: Record<string, never>;
   section_viewed: { section: Section };
+  course_page_store_click: { course_number: string; store: Store };
 };
 
 export function capture<E extends keyof EventMap>(event: E, props: EventMap[E]) {

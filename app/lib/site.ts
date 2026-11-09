@@ -10,4 +10,5 @@ export const LAST_MODIFIED = {
   support: "2026-07-24",
   privacy: "2026-07-07",
   terms: "2026-07-07",
+  courses: "2026-11-09",
 } as const;

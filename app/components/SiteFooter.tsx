@@ -21,6 +21,14 @@ export default function SiteFooter() {
           <nav className="flex flex-col gap-2.5 text-sm">
             <span className="font-display font-semibold text-ink">קישורים</span>
             <TrackedLink
+              href="/courses"
+              event="footer_link_clicked"
+              eventProps={{ link: "courses" }}
+              className="text-muted transition-colors hover:text-ink"
+            >
+              קורסים
+            </TrackedLink>
+            <TrackedLink
               href="/support"
               event="footer_link_clicked"
               eventProps={{ link: "support" }}
