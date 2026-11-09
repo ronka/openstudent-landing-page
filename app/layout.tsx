@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Rubik, Assistant } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "./components/SiteHeader";
@@ -96,6 +97,7 @@ export default function RootLayout({
           <main>{children}</main>
           <SiteFooter />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
